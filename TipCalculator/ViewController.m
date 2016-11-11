@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tipAmountLabel.text = @"";
+    self.tipAmountLabel.text = @"Tip amount: $0.00";
     
 }
 
@@ -34,8 +34,6 @@
     float tipAmount = billAmount * 0.15;
     
     self.tipAmountLabel.text = [NSString stringWithFormat:@"Tip amount: $%.2f", tipAmount];
-    
-    
 }
 
 @end
