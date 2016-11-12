@@ -307,6 +307,7 @@
 				14F9F4141DD64F0500705302 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

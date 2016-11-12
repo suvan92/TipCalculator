@@ -9,14 +9,18 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *billAmountTextField;
-//@property (weak, nonatomic) id<UITextFieldDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tipPercentLabel;
-@property (strong, nonatomic) IBOutlet UISlider *sliderValue;
-@property (weak, nonatomic) IBOutlet UILabel *totalOwedLabel;
-@property (strong, nonatomic) UITapGestureRecognizer *tapGR;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipPercentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalOwedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+
+
+@property (strong, nonatomic) UITapGestureRecognizer *tapGR;
 
 @end
 
@@ -27,20 +31,22 @@
     
     self.view.backgroundColor = [UIColor grayColor];
     
-    self.tipAmountLabel.text = @"Tip amount: $0.00";
     self.tipPercentLabel.text = @"0%";
-    self.totalOwedLabel.text = @"Total owed: $0.00";
+    self.tipLabel.text = @"$0.00";
+    self.totalLabel.text = @"$0.00";
     
     self.titleLabel.textColor = [UIColor orangeColor];
     self.tipAmountLabel.textColor = [UIColor orangeColor];
     self.tipPercentLabel.textColor = [UIColor orangeColor];
     self.totalOwedLabel.textColor = [UIColor orangeColor];
+    self.tipLabel.textColor = [UIColor orangeColor];
+    self.totalLabel.textColor = [UIColor orangeColor];
+    
     
     self.tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                          action:@selector(dismissKeyboard:)];
     
     [self.view addGestureRecognizer:self.tapGR];
-    
 }
 
 
@@ -55,19 +61,8 @@
     float billAmount = [self.billAmountTextField.text floatValue];
     float tipAmount = billAmount * sender.value/100;
     
-    self.tipAmountLabel.text = [NSString stringWithFormat:@"Tip amount: $%.2f", tipAmount];
-    self.totalOwedLabel.text = [NSString stringWithFormat:@"Total Owed: $%.2f", billAmount + tipAmount];
-}
-
-
-- (IBAction)textFieldAction:(UITextField *)sender {
-    self.tipPercentLabel.text = [NSString stringWithFormat:@"%.0f%%", self.sliderValue.value];
-    
-    float billAmount = [self.billAmountTextField.text floatValue];
-    float tipAmount = billAmount * self.sliderValue.value/100;
-    
-    self.tipAmountLabel.text = [NSString stringWithFormat:@"Tip amount: $%.2f", tipAmount];
-    self.totalOwedLabel.text = [NSString stringWithFormat:@"Total Owed: $%.2f", billAmount + tipAmount];
+    self.tipLabel.text = [NSString stringWithFormat:@"$%.2f", tipAmount];
+    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", billAmount + tipAmount];
 }
 
 -(void)dismissKeyboard:(UITapGestureRecognizer *)tapGR {
