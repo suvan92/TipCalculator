@@ -92,10 +92,8 @@
     
     float billAmount = [billAmountString floatValue];
     
-    int sliderInt = (int)self.slider.value;
-    float sliderFloat = (float)sliderInt;
-    int splitSliderInt = (int)self.splitSlider.value;
-    float splitSliderFloat = (float)splitSliderInt;
+    float sliderFloat = (float)(int)self.slider.value;
+    float splitSliderFloat = (float)(int)self.splitSlider.value;
     
     float tipAmount = billAmount * sliderFloat/100;
     
