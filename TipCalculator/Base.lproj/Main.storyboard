@@ -51,6 +51,8 @@
                                     <constraint firstAttribute="height" constant="30" id="HAl-2H-jQ4"/>
                                     <constraint firstAttribute="width" constant="175" id="wSk-hc-eF0"/>
                                 </constraints>
+                                <color key="minimumTrackTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="tipPercentSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="eJu-C4-pKy"/>
                                 </connections>
@@ -108,6 +110,8 @@
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Nj-Hx-zSM">
                                 <rect key="frame" x="70" y="376" width="179" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="splitBySlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="UdN-V9-psv"/>
                                 </connections>

@@ -72,7 +72,7 @@
     [self.view endEditing:YES];
 }
 
-// Called whenever current text in textfield changes
+// Called whenever text in textfield changes
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
     // Make text in textField a mutable string
@@ -91,17 +91,22 @@
     self.tipPercentLabel.text = [NSString stringWithFormat:@"%.0f%%", self.slider.value];
     
     float billAmount = [billAmountString floatValue];
-    float tipAmount = billAmount * self.slider.value/100;
+    
+    int sliderInt = (int)self.slider.value;
+    float sliderFloat = (float)sliderInt;
+    int splitSliderInt = (int)self.splitSlider.value;
+    float splitSliderFloat = (float)splitSliderInt;
+    
+    float tipAmount = billAmount * sliderFloat/100;
     
     float totalIncludingTip = billAmount + tipAmount;
     
-    float tipSplit = tipAmount/self.splitSlider.value;
-    float totalSplit = totalIncludingTip / self.splitSlider.value;
+    float tipSplit = tipAmount / splitSliderFloat;
+    float totalSplit = totalIncludingTip / splitSliderFloat;
     
     self.tipLabel.text = [NSString stringWithFormat:@"$%.2f ($%.2f)", tipAmount, tipSplit];
     self.totalLabel.text = [NSString stringWithFormat:@"$%.2f ($%.2f)", totalIncludingTip, totalSplit];
-    
-    self.splitByLabel.text = [NSString stringWithFormat:@"Split by: %.0f", self.splitSlider.value];
+    self.splitByLabel.text = [NSString stringWithFormat:@"Split by: %.0f", splitSliderFloat];
 }
 
 @end
